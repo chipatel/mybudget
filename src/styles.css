@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+.period {
+  display: block;
+  padding: 10px;
+  background: #FFE0B2;
+  border: #000000 1px;
+  border-style: solid;
+}

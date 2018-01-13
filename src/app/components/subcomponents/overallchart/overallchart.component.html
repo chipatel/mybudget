@@ -1,0 +1,17 @@
+<div>
+  <div class="period-selection">
+    <span class="period"><button (click)="oneYearRandor()">1yr</button>
+
+    <button (click)="sixMonthRandor()">6m</button></span>
+  </div>
+  <div style="display: block">
+    <canvas baseChart
+            [datasets]="chartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</div>
