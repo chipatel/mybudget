@@ -1,0 +1,116 @@
+<form class="addincome-form">
+  <mat-form-field>
+    <mat-select placeholder="Budget Type" [(ngModel)]="budgetType" name="budgetType">
+      <mat-option *ngFor="let budgetTypeEnum of budgetTypeEnums" [value]="budgetTypeEnum.value">
+        {{budgetTypeEnum.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Budget Tag" [(ngModel)]="budgetTag" name="budgetTag">
+      <mat-option *ngFor="let budgetTagEnum of budgetTagEnums" [value]="budgetTagEnum.value">
+        {{budgetTagEnum.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field> <!-- class="addincome-full-width"> -->
+    <input matInput placeholder="Budget Description" [(ngModel)]="budgetDescription"
+           name="budgetDiscription" value="">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Amount" type="number" [(ngModel)]="budgetAmount"
+           name="budgetAmount" class="example-right-align">
+    <span matPrefix>$&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-select placeholder="Month" [(ngModel)]="budgetMonth" name="budgetMonth">
+      <mat-option *ngFor="let budgetMonthEnum of budgetMonthEnums" [value]="budgetMonthEnum.value">
+        {{budgetMonthEnum.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Year" [(ngModel)]="budgetYear" name="budgetYear">
+      <mat-option *ngFor="let budgetYearEnum of budgetYearEnums" [value]="budgetYearEnum.value">
+        {{budgetYearEnum.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button type="submit" (click)="addBudget()" class="btn btn-primary mb-2">Submit</button>
+  <button type="reset" class="btn btn-error mb-2">Cancel</button>
+</form>
+
+
+<!--<form name="add-budget-form">
+  <div class="form-group">
+    <label for="type">Type</label>
+    <select class="form-control" id="type" [(ngModel)]="type" name="type">
+      <option value="INCOME">Income</option>
+      <option value="EXPENSE">Expense</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description" [(ngModel)]="description"
+           name="description"
+           placeholder="please enter description..." required>
+  </div>
+
+  <div class="form-group">
+    <label for="tag">Tag</label>
+    <select class="form-control" id="tag" [(ngModel)]="tag" name="tag">
+      <option value="PAYROLL">Payroll</option>
+      <option value="REGULAR_EXPENSE">Regular Expense</option>
+      <option value="CC_BILL">CC Bill</option>
+      <option value="DEPOSIT">Deposit</option>
+      <option value="SAVING">Saving</option>
+      <option value="MANDIR">Mandir</option>
+      <option value="EXTRA">Extra</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="amount">Amount</label>
+    <input type="number" class="form-control" id="amount" [(ngModel)]="amount" name="amount"
+           placeholder="##.##">
+  </div>
+
+  <div class="form-group">
+    <label for="month">Month</label>
+    <select class="form-control" id="month" [(ngModel)]="month" name="month">
+      <option value=1>January</option>
+      <option value=2>February</option>
+      <option value=3>March</option>
+      <option value=4>April</option>
+      <option value=5>May</option>
+      <option value=6>June</option>
+      <option value=7>July</option>
+      <option value=8>August</option>
+      <option value=9>September</option>
+      <option value=10>October</option>
+      <option value=11>November</option>
+      <option value=12>December</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="year">Year</label>
+    <select class="form-control" id="year" [(ngModel)]="year" name="year">
+      <option value=2016>2016</option>
+      <option value=2017>2017</option>
+      <option value=2018>2018</option>
+    </select>
+  </div>
+
+  <button type="submit" (click)="addBudget()" class="btn btn-primary mb-2">Submit</button>
+  <button type="reset" class="btn btn-error mb-2">Cancel</button>
+</form> -->

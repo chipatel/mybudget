@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 
-import {OverallDao} from './../dao/overall.dao';
+import {BarChartModel} from './../../../model/barchart.model';
+import {BudgetModel} from './../../../model/budget.model';
+import {BudgetService} from '../../../../services/budget.service';
 
 @Component({
   moduleId: module.id,
@@ -9,12 +11,33 @@ import {OverallDao} from './../dao/overall.dao';
 })
 
 export class OverallchartComponent {
+  public allBudgetModels: BudgetModel[];
+  public barchartModel: BarChartModel;
+
+  constructor(public _budgetService: BudgetService) {
+    this.today = new Date();
+    this.getAllIncome();
+  }
 
 
-  public chartData: OverallDao[] = [
+  public getAllIncome() {
+    this._budgetService.getBudgets().subscribe(allBudgetModels => {
+        this.allBudgetModels = allBudgetModels;
+        this.generateChartData();
+      }
+    );
+  }
+
+  public generateChartData() {
+    for (const budget of this.allBudgetModels) {
+    }
+  }
+
+  public chartData: BarChartModel[] = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
     {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
   ];
+
   public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
   public overallChartType = 'bar';
   public today;
@@ -24,10 +47,6 @@ export class OverallchartComponent {
   };
   public barChartType = 'bar';
   public barChartLegend = true;
-
-  constructor() {
-    this.today = new Date();
-  }
 
   public oneYearRandor() {
     console.log('one year randor button clicked...' + this.today);

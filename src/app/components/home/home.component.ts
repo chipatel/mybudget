@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -7,5 +6,11 @@ import {Router, ActivatedRoute} from '@angular/router';
   templateUrl: 'home.component.html'
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  constructor() {
+  }
+
+  ngOnInit() {
+  }
 }

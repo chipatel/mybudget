@@ -1,0 +1,49 @@
+<div>
+    <mat-table #table [dataSource]="budgettabledata">
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef>
+                Type
+            </mat-header-cell>
+            <mat-cell *matCellDef="let budget">{{budget.budgetType}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="tag">
+            <mat-header-cell *matHeaderCellDef>
+                Tag
+            </mat-header-cell>
+            <mat-cell *matCellDef="let budget">{{budget.budgetTag}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef>
+                Description
+            </mat-header-cell>
+            <mat-cell *matCellDef="let budget">{{budget.budgetDescription}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+            <mat-header-cell *matHeaderCellDef>
+                Amount
+            </mat-header-cell>
+            <mat-cell *matCellDef="let budget">{{budget.budgetAmount}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="month">
+            <mat-header-cell *matHeaderCellDef>
+                Month
+            </mat-header-cell>
+            <mat-cell *matCellDef="let budget">{{budget.budgetMonth}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="year">
+            <mat-header-cell *matHeaderCellDef>
+                Year
+            </mat-header-cell>
+            <mat-cell *matCellDef="let budget">{{budget.budgetYear}}</mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnsToShow"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnsToShow"></mat-row>
+    </mat-table>
+    <mat-paginator #paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+</div>

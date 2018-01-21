@@ -1,0 +1,10 @@
+{
+  "/budget": {
+    "target": "https://bookkeeping-spring-hibernate.herokuapp.com/budget",
+    "secure": false,
+    "pathRewrite": {
+      "^/budget": ""
+    },
+    "changeOrigin": true
+  }
+}
