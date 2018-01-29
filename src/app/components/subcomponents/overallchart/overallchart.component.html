@@ -1,17 +1,10 @@
-<div>
-  <div class="period-selection">
-    <span class="period"><button (click)="oneYearRandor()">1yr</button>
+<div style="margin-top: 50px">
+    <!-- <div class="period-selection">
+        <span class="period"><button (click)="oneYearRandor()">1yr</button>
 
-    <button (click)="sixMonthRandor()">6m</button></span>
-  </div>
-  <div style="display: block">
-    <canvas baseChart
-            [datasets]="chartData"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [chartType]="barChartType"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"></canvas>
-  </div>
+    <button (click)="sixMonthRandor()">6m</button></span> 
+    </div> -->
+    <div style="display: block">
+        <canvas *ngIf="barChartModel" baseChart [datasets]="barChartModel" [labels]="barChartLabels" [options]="barChartOptions" [legend]="chartLegend" [chartType]="chartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+    </div>
 </div>

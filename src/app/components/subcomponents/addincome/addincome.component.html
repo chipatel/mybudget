@@ -1,53 +1,53 @@
-<form class="addincome-form">
-  <mat-form-field>
-    <mat-select placeholder="Budget Type" [(ngModel)]="budgetType" name="budgetType">
-      <mat-option *ngFor="let budgetTypeEnum of budgetTypeEnums" [value]="budgetTypeEnum.value">
-        {{budgetTypeEnum.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+<mat-card>
+    <form class="addincome-form">
+        <mat-form-field>
+            <mat-select placeholder="Budget Type" [(ngModel)]="budgetType" name="budgetType">
+                <mat-option *ngFor="let budgetTypeEnum of budgetTypeEnums" [value]="budgetTypeEnum.value">
+                    {{budgetTypeEnum.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-  <mat-form-field>
-    <mat-select placeholder="Budget Tag" [(ngModel)]="budgetTag" name="budgetTag">
-      <mat-option *ngFor="let budgetTagEnum of budgetTagEnums" [value]="budgetTagEnum.value">
-        {{budgetTagEnum.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Budget Tag" [(ngModel)]="budgetTag" name="budgetTag">
+                <mat-option *ngFor="let budgetTagEnum of budgetTagEnums" [value]="budgetTagEnum.value">
+                    {{budgetTagEnum.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-  <mat-form-field> <!-- class="addincome-full-width"> -->
-    <input matInput placeholder="Budget Description" [(ngModel)]="budgetDescription"
-           name="budgetDiscription" value="">
-  </mat-form-field>
+        <mat-form-field>
+            <!-- class="addincome-full-width"> -->
+            <input matInput placeholder="Budget Description" [(ngModel)]="budgetDescription" name="budgetDiscription" value="">
+        </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="Amount" type="number" [(ngModel)]="budgetAmount"
-           name="budgetAmount" class="example-right-align">
-    <span matPrefix>$&nbsp;</span>
-    <span matSuffix>.00</span>
-  </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Amount" type="number" [(ngModel)]="budgetAmount" name="budgetAmount" class="example-right-align">
+            <span matPrefix>$&nbsp;</span>
+            <span matSuffix>.00</span>
+        </mat-form-field>
 
 
-  <mat-form-field>
-    <mat-select placeholder="Month" [(ngModel)]="budgetMonth" name="budgetMonth">
-      <mat-option *ngFor="let budgetMonthEnum of budgetMonthEnums" [value]="budgetMonthEnum.value">
-        {{budgetMonthEnum.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Month" [(ngModel)]="budgetMonth" name="budgetMonth">
+                <mat-option *ngFor="let budgetMonthEnum of budgetMonthEnums" [value]="budgetMonthEnum.value">
+                    {{budgetMonthEnum.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-  <mat-form-field>
-    <mat-select placeholder="Year" [(ngModel)]="budgetYear" name="budgetYear">
-      <mat-option *ngFor="let budgetYearEnum of budgetYearEnums" [value]="budgetYearEnum.value">
-        {{budgetYearEnum.viewValue}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+        <mat-form-field>
+            <mat-select placeholder="Year" [(ngModel)]="budgetYear" name="budgetYear">
+                <mat-option *ngFor="let budgetYearEnum of budgetYearEnums" [value]="budgetYearEnum.value">
+                    {{budgetYearEnum.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-  <button type="submit" (click)="addBudget()" class="btn btn-primary mb-2">Submit</button>
-  <button type="reset" class="btn btn-error mb-2">Cancel</button>
-</form>
-
+        <button type="submit" (click)="addBudget()" class="btn btn-primary mb-2">Submit</button>
+        <button type="reset" class="btn btn-error mb-2">Cancel</button>
+    </form>
+</mat-card>
 
 <!--<form name="add-budget-form">
   <div class="form-group">

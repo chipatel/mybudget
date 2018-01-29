@@ -1,10 +1,11 @@
-import {ModuleWithProviders} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {HomeComponent} from './components/home/home.component';
-import {AddComponent} from './components/add/add.component';
-import {SettingsComponent} from './components/settings/settings.component';
-import {HelpComponent} from './components/help/help.component';
+import { HomeComponent } from './components/home/home.component';
+import { AddComponent } from './components/add/add.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { HelpComponent } from './components/help/help.component';
+import { DetailsbudgetComponent } from './components/detailsbudget/detailsbudget.component';
 
 
 const appRoutes: Routes = [
@@ -23,6 +24,10 @@ const appRoutes: Routes = [
   {
     path: 'help',
     component: HelpComponent
+  },
+  {
+    path: 'details',
+    component: DetailsbudgetComponent
   }
 ];
 

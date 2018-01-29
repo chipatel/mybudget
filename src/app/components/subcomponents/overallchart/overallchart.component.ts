@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
-import {BarChartModel} from './../../../model/barchart.model';
-import {BudgetModel} from './../../../model/budget.model';
-import {BudgetService} from '../../../../services/budget.service';
+import { BarChartModel } from './../../../model/barchart.model';
+import { BudgetModel } from './../../../model/budget.model';
+import { BudgetService } from '../../../../services/budget.service';
 
 @Component({
   moduleId: module.id,
@@ -12,54 +12,35 @@ import {BudgetService} from '../../../../services/budget.service';
 
 export class OverallchartComponent {
   public allBudgetModels: BudgetModel[];
-  public barchartModel: BarChartModel;
+  public barChartModel: BarChartModel;
+  public barChartLabels: string[];
+  private chartType: string;
+  private chartLegend: boolean;
+  private chartOptions: any;
 
   constructor(public _budgetService: BudgetService) {
-    this.today = new Date();
+    this.chartType = 'bar';
+    this.chartLegend = true;
+    this.chartOptions = {
+      scaleShowVerticalLines: true,
+      responsive: true
+    };
     this.getAllIncome();
   }
 
 
   public getAllIncome() {
-    this._budgetService.getBudgets().subscribe(allBudgetModels => {
-        this.allBudgetModels = allBudgetModels;
-        this.generateChartData();
-      }
-    );
+    this._budgetService.getOverallData().subscribe(overalldata => {
+      this.barChartModel = overalldata.chartData;
+      this.barChartLabels = overalldata.axisLabel;
+
+      console.log(this.barChartLabels);
+    });
   }
 
   public generateChartData() {
     for (const budget of this.allBudgetModels) {
     }
-  }
-
-  public chartData: BarChartModel[] = [
-    {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
-    {data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B'}
-  ];
-
-  public barChartLabels: string[] = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-  public overallChartType = 'bar';
-  public today;
-  public barChartOptions: any = {
-    scaleShowVerticalLines: false,
-    responsive: true
-  };
-  public barChartType = 'bar';
-  public barChartLegend = true;
-
-  public oneYearRandor() {
-    console.log('one year randor button clicked...' + this.today);
-    this.getOneYearTimeline();
-  }
-
-  public getOneYearTimeline() {
-    this.barChartLabels = this.dateRange('2017-01-13', '2018-01-13');
-  }
-
-  public sixMonthRandor() {
-    console.log('six month randor button clicked...');
-    this.barChartLabels = ['Jan2016', 'Feb2017'];
   }
 
   // events
@@ -71,7 +52,7 @@ export class OverallchartComponent {
     console.log(e);
   }
 
-  public  dateRange(startDate, endDate) {
+  public dateRange(startDate, endDate) {
     const start = startDate.split('-');
     const end = endDate.split('-');
     const startYear = parseInt(start[0]);

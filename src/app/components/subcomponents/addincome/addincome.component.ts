@@ -54,6 +54,7 @@ export class AddIncomeFormComponent {
   budgetTypeEnums = [
     {value: 'INCOME', viewValue: 'Income'},
     {value: 'EXPENSE', viewValue: 'Expnese'},
+    {value: 'SAVING', viewValue: 'Saving'}
   ];
 
   budgetMonthEnums = [

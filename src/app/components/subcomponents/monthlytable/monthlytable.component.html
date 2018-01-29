@@ -1,0 +1,10 @@
+<mat-card>
+    <div>Income</div>
+    <app-datatable [budgettabledata]="incomeMatTableData" [total]="totalIncome.toFixed(2)"></app-datatable>
+    <p class="table-layout"></p>
+    <div>Expnese</div>
+    <app-datatable [budgettabledata]="expenseMatTableData" [total]="totalExpense.toFixed(2)"></app-datatable>
+    <p class="table-layout"></p>
+    <div>Savings</div>
+    <app-datatable [budgettabledata]="savingMatTableData" [total]="totalSaving"></app-datatable>
+</mat-card>

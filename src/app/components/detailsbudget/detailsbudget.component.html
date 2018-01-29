@@ -1,0 +1,10 @@
+<mat-form-field>
+    <mat-select placeholder="Which month" [(ngModel)]="budgetValue">
+        <mat-option *ngFor="let budgetS of budgetSelection" [value]="budgetS.value">
+            {{ budgetS.viewValue }}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<button type="submit" (click)="refreshBudgetPanel()" class="btn btn-primary mb-2">Submit</button>
+
+<app-monthlytable></app-monthlytable>

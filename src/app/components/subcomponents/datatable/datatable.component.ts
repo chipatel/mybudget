@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { BudgetService } from '../../../../services/budget.service';
 import { DataSource } from '@angular/cdk/collections';
 import { BudgetModel } from '../../../model/budget.model';
@@ -12,35 +12,26 @@ import { AppComponent } from '../../../app.component';
   styleUrls: ['./datatable.component.css']
 })
 export class DatatableComponent implements OnInit {
-  budgetData: BudgetModel[];
-  budgettabledata = new MatTableDataSource<BudgetModel>();
-  columnsToShow = ['type', 'tag', 'description', 'amount', 'month', 'year'];
-  constructor(private _budgetService: BudgetService, private mainComp: AppComponent) {
-    console.log(this.mainComp.getCurrentMonth() + '\n\n' + this.mainComp.getCurrentYear());
-  }
-
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  ngOnInit() {
-    this._budgetService.getBudgets().subscribe(allbudget => {
-      this.budgettabledata.data = allbudget;
-    });
-  }
+  private currentDate = new Date();
+  budgetData: BudgetModel[];
+  @Input() budgettabledata = new MatTableDataSource<BudgetModel>();
+  @Input() total: number;
+  columnsToShow = ['description', 'amount'];
 
-  ngAfterViewInit() {
-    this.budgettabledata.paginator = this.paginator;
-  }
-
-}
-
-export class BudgetDataSource extends DataSource<any> {
   constructor(private _budgetService: BudgetService) {
-    super();
+  }
+  ngOnInit() {
+
+  }
+  ngAfterViewInit() {
   }
 
-  connect(): Observable<BudgetModel[]> {
-    return this._budgetService.getBudgets();
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.budgettabledata.filter = filterValue;
   }
 
-  disconnect() { }
 }

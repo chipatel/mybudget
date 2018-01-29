@@ -18,7 +18,6 @@ export class AllBudgetTableComponent {
   constructor(public  _budgetService: BudgetService) {
     this._budgetService.getBudgets().subscribe(allBudgetTable => {
         this.allBudgetTable = allBudgetTable;
-        // console.log(this.allBudgetTable);
       }
     );
 

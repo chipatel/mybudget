@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {ChartsModule} from 'ng2-charts';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppComponent} from './app.component';
@@ -16,6 +16,7 @@ import {OverallchartComponent} from './components/subcomponents/overallchart/ove
 import {AllBudgetTableComponent} from './components/subcomponents/allbudgettable/allbudgettable.component';
 import {AddIncomeFormComponent} from './components/subcomponents/addincome/addincome.component';
 import { DatatableComponent } from './components/subcomponents/datatable/datatable.component';
+import { AllInOneTableComponent } from './components/subcomponents/allinonetable/allinonetable.component';
 
 import {routing} from './app.routing';
 
@@ -25,11 +26,14 @@ import {
   MatSelectModule,
   MatTableModule,
   MatInputModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatCardModule
  // MatTableDataSource
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CdkTableModule} from '@angular/cdk/table';
+import { MonthlytableComponent } from './components/subcomponents/monthlytable/monthlytable.component';
+import { DetailsbudgetComponent } from './components/detailsbudget/detailsbudget.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,10 @@ import {CdkTableModule} from '@angular/cdk/table';
     OverallchartComponent,
     AllBudgetTableComponent,
     AddIncomeFormComponent,
-    DatatableComponent
+    DatatableComponent,
+    AllInOneTableComponent,
+    MonthlytableComponent,
+    DetailsbudgetComponent
   ],
   exports: [],
   imports: [
@@ -51,13 +58,15 @@ import {CdkTableModule} from '@angular/cdk/table';
     routing,
     ChartsModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
     MatSelectModule,
     CdkTableModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatCardModule
    // MatTableDataSource
   ],
   providers: [],

@@ -9,17 +9,4 @@ import { BudgetService } from '../services/budget.service';
 })
 export class AppComponent {
   title = 'app';
-
-  private currentDate = new Date();
-  constructor() {
-
-  }
-
-  public getCurrentMonth() {
-    return this.currentDate.getMonth() + 1;
-  }
-
-  public getCurrentYear() {
-    return this.currentDate.getFullYear();
-  }
 }
